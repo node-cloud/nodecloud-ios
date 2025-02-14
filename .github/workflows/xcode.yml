@@ -12,9 +12,9 @@ on:
       - develop
 
 env:
-  PROJECT: Nextcloud.xcodeproj
+  PROJECT: Nodecloud.xcodeproj
   DESTINATION: platform=iOS Simulator,name=iPhone 16,OS=18.1
-  SCHEME: Nextcloud
+  SCHEME: Nodecloud
   SERVER_BRANCH: stable28
   PHP_VERSION: 8.2
 
@@ -30,7 +30,7 @@ jobs:
     - name: Download GoogleService-Info.plist
       run: wget "https://raw.githubusercontent.com/firebase/quickstart-ios/master/mock-GoogleService-Info.plist" -O GoogleService-Info.plist
 
-    - name: Build Nextcloud iOS
+    - name: Build Nodecloud iOS
       run: |
         set -o pipefail && \
         xcodebuild build-for-testing \
@@ -42,7 +42,7 @@ jobs:
     - name: Upload test build
       uses: actions/upload-artifact@v4
       with:
-        name: Nextcloud iOS
+        name: Nodecloud iOS
         path: DerivedData/Build/Products
         retention-days: 4
 
@@ -75,7 +75,7 @@ jobs:
         path: server
         ref: ${{ env.SERVER_BRANCH }}
 
-    - name: Set up Nextcloud
+    - name: Set up Nodecloud
       run: |
         mkdir server/data
         ./server/occ maintenance:install --verbose --database=sqlite --database-name=nextcloud --database-host=127.0.0.1 --database-user=root --database-pass=rootpassword --admin-user admin --admin-pass admin
@@ -90,12 +90,12 @@ jobs:
     - name: Download test build
       uses: actions/download-artifact@v4
       with:
-        name: Nextcloud iOS
+        name: Nodecloud iOS
 
     - name: Check server status
       run: curl -s --retry 5 --retry-delay 60 --retry-all-errors http://localhost:8080/status.php || true
 
-    - name: Test Nextcloud iOS
+    - name: Test Nodecloud iOS
       run: |
         set -o pipefail && \
         xcodebuild test-without-building \
