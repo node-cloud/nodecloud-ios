@@ -35,9 +35,9 @@ let userAgent: String = {
         return instance
     }()
 
-    var brand: String = "Nextcloud"
-    var textCopyrightNextcloudiOS: String = "Nextcloud Hydrogen for iOS %@ © 2024"
-    var textCopyrightNextcloudServer: String = "Nextcloud Server %@"
+    var brand: String = "Nodecloud"
+    var textCopyrightNextcloudiOS: String = "Nodecloud Hydrogen for iOS %@ © 2024"
+    var textCopyrightNextcloudServer: String = "Nodecloud Server %@"
     var loginBaseUrl: String = "https://cloud.nextcloud.com"
     @objc var pushNotificationServerProxy: String = "https://push-notifications.nextcloud.com"
     var linkLoginHost: String = "https://nextcloud.com/install"
@@ -52,7 +52,7 @@ let userAgent: String = {
     var folderDefaultAutoUpload: String = "Photos"
 
     // Capabilities Group
-    var capabilitiesGroup: String = "group.it.twsweb.Crypto-Cloud"
+    var capabilitiesGroup: String = "group.it.twsweb.Crypto-NodeCloud"
     var capabilitiesGroupApps: String = "group.com.nextcloud.apps"
 
     // BRAND ONLY

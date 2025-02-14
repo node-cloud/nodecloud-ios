@@ -22,7 +22,7 @@
 //
 
 #if !defined(EXTENSION)
-#import "Nextcloud-Swift.h"
+#import "Nodecloud-Swift.h"
 #endif
 
 #if defined(EXTENSION_SHARE)
