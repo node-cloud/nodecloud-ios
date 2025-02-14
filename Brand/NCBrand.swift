@@ -328,7 +328,7 @@ class NCBrandColor: NSObject {
 
     public func getText(account: String?) -> UIColor {
         if let account, let color = self.themingColorText[account] {
-            return color
+            return  color
         }
         return .white
     }
